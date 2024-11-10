@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forget Nukeri - Portfolio</title>
+    <style>
+    /* Reset and Base Styles */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e;
+            color: #eee;
+            line-height: 1.6;
+        }
+        /* Header & Navigation */
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            color: #ffdb4d;
+        }
+        
+        .top-right-btn {
+            padding: 0.6rem 1.2rem;
+            background: #ffdb4d;
+            color: #333;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .top-right-btn:hover {
+            background: #ffbf00;
+        }
+        /* Tabs and Content */
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .tab-button {
+            padding: 1rem 2rem;
+            margin: 0 0.5rem;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .tab-button:hover,
+        .tab-button.active {
+            background: #ffdb4d;
+            color: #333;
+        }
+        
+        .tab-content {
+            display: none;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #2c2c2c;
+            border-radius: 8px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        /* Content for each Tab */
+        
+        h2 {
+            color: #ffdb4d;
+            margin-bottom: 1rem;
+        }
+        /* Button for Certificates */
+        
+        .certificates-btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: #ffdb4d;
+            color: #333;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .certificates-btn:hover {
+            background: #ffbf00;
+        }
+        /* Footer */
+        
+        footer {
+            padding: 1rem;
+            background-color: #333;
+            color: #ffdb4d;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        /* Projects Grid Layout */
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        /* Individual Project Card */
+        
+        .project-item {
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-5px);
+        }
+        /* Project Image */
+        
+        .project-image {
+            width: 70%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        /* Project Information */
+        
+        .project-info {
+            padding: 1rem;
+        }
+        
+        .project-info h3 {
+            color: #ffdb4d;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-info p {
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+        /* Modal Styles */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 80%;
+        }
+        
+        .close-btn {
+            background-color: #ffdb4d;
+            color: #333;
+            border: none;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .close-btn:hover {
+            background-color: #ffbf00;
+        }
+        
+        .certificate-links a {
+            display: block;
+            color: #ffdb4d;
+            margin: 1rem 0;
+            text-decoration: none;
+        }
+        
+        .certificate-links a:hover {
+            color: #ffbf00;
+        }
+        /* Profile Image Container */
+        
+        .profile-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin-left: 2rem;
+            /* Adds space between text and image */
+        }
+        /* Profile Image Styling */
+        
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 191, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+        /* SVG Dashed Border */
+        
+        .dashed-border {
+            position: current-static/images/profile.jfif;
+            top: 0;
+            left: 0;
+            transform: rotate(0deg);
+            animation: reverse-rotate 8s linear infinite reverse;
+        }
+        /* Circle Stroke Styling */
+        
+        .dashed-border circle {
+            fill: none;
+            stroke: #ffbf00;
+            stroke-width: 6;
+            stroke-dasharray: 10, 10;
+            /* Creates a dashed pattern */
+        }
+        /* Keyframe Animation for Reverse Rotation */
+        
+        @keyframes reverse-rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+        /* Keyframe Animation for Pulsing Glow */
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 191, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(255, 191, 0, 1);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(255, 191, 0, 0.5);
+            }
+        }
+        /* About Container to align text and image */
+        
+        .about-container {
+            display: flex;
+            justify-content: space-between;
+            /* Positions text on the left and image on the right */
+            align-items: center;
+            margin-top: 2rem;
+        }
+        /* About Text Styling */
+        
+        .about-text {
+            max-width: 60%;
+            /* You can adjust this based on how much space you want for the text */
+        }
+        /* About Me Section Styling */
+        
+        #about {
+            padding: 2rem 5%;
+            background: #2c2c2c;
+            border-radius: 8px;
+        }
+        /* About Me Text Styling */
+        
+        #about p {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        /* Overall container for stats */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;  /* Adds space between buttons */
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  /* Individual stat block styling */
+  .stat {
+    text-align: center;
+    flex: 1;
+    max-width: 180px;  /* Limit max width for balance */
+  }
+  
+  /* Button styling */
+  .stats-button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;  /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Hover effects for the button */
+  .stats-button:hover {
+    background-color: #45a049;  /* Slightly darker green */
+    transform: translateY(-3px); /* Lift effect */
+  }
+  
+  /* Count-up number styling */
+  .count-up {
+    font-size: 40px;
+    font-weight: 700;
+    color: #333;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .stats-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .stat {
+      max-width: 100%;
+    }
+  }
+  
+    </style>
+</head>
+
+<body>
+
+   <!-- Header with Resume Button -->
+    <header>
+        <h1>Forget Nukeri</h1>
+        <!-- Update the path to point to your correct PDF location -->
+        <a href="static/New folder/Cv_Forget_Nukeri1.pdf" class="top-right-btn" target="_blank">Resume</a>
+
+    </header>
+
+
+    <!-- Tab Buttons -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('about')">About Me</button>
+        <button class="tab-button" onclick="openTab('projects')">Projects</button>
+        <button class="tab-button" onclick="openTab('skills')">Skills</button>
+    </div>
+
+    <!-- About Me Section -->
+    <div id="about" class="tab-content active">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <div class="profile-image-container">
+                <img src="static/images/profile.jfif" alt="Profile Picture" class="profile-image">
+                <svg class="dashed-border" width="160" height="160">
+                    <circle cx="80" cy="80" r="75"></circle>
+                </svg>
+            </div>
+            <div class="about-text">
+                <p>Hello! I am Forget Nukeri, a passionate software developer skilled in various programming languages. With a strong focus on creating secure and efficient software, I specialize in developing applications that prioritize both functionality and cybersecurity. My expertise lies in integrating security practices throughout the software development lifecycle, ensuring robust and safe solutions for modern applications. Whether I’m coding in languages like C#, Python,  or conducting security assessments through penetration testing and ethical hacking, I aim to build software that stands up to the challenges of today’s digital threats.</p>
+
+            </div>
+        </div>
+        <a href="javascript:void(0)" class="certificates-btn" onclick="showCertificates()">View Certificates</a>
+        <div class="stats-container">
+            <div class="stat">
+              <div class="count-up" id="certificates-count">0</div>
+              <span class="stat-label">Certificates</span>
+            </div>
+            <div class="stat">
+              <div class="count-up" id="projects-count">0</div>
+              <span class="stat-label">Projects</span>
+            </div>
+          </div>
+          
+          
+    </div>
+    </div>
+    <!-- Modal for Certificates -->
+    <div class="modal" id="certificatesModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">Close</button>
+            <h3>My Certificates</h3>
+            <div class="certificate-links">
+                <!-- Links to Certificates -->
+                <a href="https://courses.cognitiveclass.ai/certificates/120f51b4bb154ef8905fec36b13b0e65" target="_blank">SQL and Relational Databases 101</a>
+                <a href="https://www.udemy.com/certificate/UC-23d4fe2f-fcd3-401e-a5fa-799f0be447ac/" target="_blank">IT Security 101 Cybersecurity for Beginners</a>
+                <a href="https://www.freecodecamp.org/certification/fccf3a811ad-7ecd-4bf5-b2b7-ffb354af3c23/responsive-web-design" target="_blank">Responsive Web Design</a>
+                <a href="https://courses.cognitiveclass.ai/certificates/376c0215771844bcbe6db7d15f53e479" target="_blank">Data Science 101</a>
+                <a href="https://courses.cognitiveclass.ai/certificates/8f43018560ec40548bf33511c9535ec1" target="_blank">Statistics 101</a>
+                <!--<a href="https://www.udemy.com/certificate/UC-23d4fe2f-fcd3-401e-a5fa-799f0be447ac/" target="_blank">IT Security 101 Cybersecurity for Beginners</a>
+                <!-- Add more certificate links as needed -->
+            </div>
+        </div>
+    </div>
+
+    <div id="projects" class="tab-content">
+        <h2>Projects</h2>
+        <p>Explore my recent projects where I applied various technologies to solve complex problems. Each project demonstrates my commitment to high-quality development and problem-solving.</p>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-item">
+                <img src="static/images/savepassword.jfif" alt="Project 1 Screenshot" class="project-image">
+                <div class="project-info">
+                    <h3>Save password Website!</h3>
+                    <p>Save Password is web-based password management system designed to securely store and organize users's sensitive information.The platform allows users to create accounts, store password, and add descriptive notes for easy retrievals.</p>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-item">
+                <img src="static/images/fileorganizers.jfif" loading="lazy" alt="Project 2 Screenshot" class="project-image">
+                <div class="project-info">
+                    <h3>File Organizers</h3>
+                    <p>File Organizer is a python-based tool designed to streamline file management tasks.This intuitive program enables users to efficiently organize, categorive, and maintain their files, saving time and reducing clutters.</p>
+                </div>
+            </div>
+            <!-- Add more projects as needed -->
+        </div>
+    </div>
+
+    <div id="skills" class="tab-content">
+        <h2>Skills</h2>
+        <p>Here are some of the key skills that I bring to every project:</p>
+        <ul>
+            <li>Programming Languages: Python, C#, JavaScript</li>
+            <li>Web Development: HTML, CSS, Flask, Node.js</li>
+            <li>Database Management: MySQL, Firebase</li>
+            <li>Cybersecurity and Network Security</li>
+            <li>Cloud Solutions: AWS, Azure</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Forget Nukeri. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(button => button.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function showCertificates() {
+            document.getElementById("certificatesModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("certificatesModal").style.display = "none";
+        }
+        // Function to animate count-up
+function countUp(elementId, targetValue, duration) {
+    let element = document.getElementById(elementId);
+    let currentValue = 0;
+    let increment = targetValue / (duration / 50);
+  
+    function updateCount() {
+      if (currentValue < targetValue) {
+        currentValue += increment;
+        element.innerText = Math.floor(currentValue);
+        setTimeout(updateCount, 50);
+      } else {
+        element.innerText = targetValue;
+      }
+    }
+  
+    updateCount();
+  }
+  
+  // Initialize count-up effects
+  window.onload = function() {
+    countUp("certificates-count", 5, 2000);  // Certificates count to 5 over 2 seconds
+    countUp("projects-count", 2, 2000);      // Projects count to 2 over 2 seconds
+  };
+  
+    </script>
+
+</body>
+
+</html>
