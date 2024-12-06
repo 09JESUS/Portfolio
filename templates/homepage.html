@@ -239,7 +239,7 @@
             position: current-static/images/profile.jfif;
             top: 0;
             left: 0;
-            transform: rotate(0deg);
+            transform: rotate(90deg);
             animation: reverse-rotate 8s linear infinite reverse;
         }
         /* Circle Stroke Styling */
@@ -255,7 +255,7 @@
         
         @keyframes reverse-rotate {
             from {
-                transform: rotate(0deg);
+                transform: rotate(180deg);
             }
             to {
                 transform: rotate(-360deg);
@@ -351,7 +351,7 @@
   }
   
   /* Responsive design for smaller screens */
-  @media (max-width: 768px) {
+  @media (max-width: 780px) {
     .stats-container {
       flex-direction: column;
       align-items: stretch;
@@ -362,7 +362,7 @@
     }
   }
   .contact-container {
-    width: 80%;
+    width: 100%;
     max-width: 900px;
     background-color: #fff;
     padding: 20px;
@@ -385,7 +385,7 @@ h2 {
 .contact-form, .contact-info {
     flex: 1;
     background-color: #f7f9fc;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
 }
 
@@ -411,7 +411,7 @@ h2 {
 
 .contact-form button {
     background-color: #ff7878;
-    color: #fff;
+    color: #00698f;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -425,18 +425,32 @@ h2 {
 
 .contact-info p {
     margin-bottom: 10px;
-    color: #666;
+    color: #00698f;
 }
 
 .contact-info a {
-    color: #ff7878;
+    color: #00698f;
     text-decoration: none;
 }
 
 .contact-info a:hover {
     text-decoration: underline;
 }
-  
+/*Desktop Styles*/
+@Media only screen and (min-width: 768px)
+{
+
+}
+/*Tablet Styles*/
+@media only screen and( min-width: 480px) and (max-width: 767px)
+{
+
+}
+/*Mobile Styles*/
+@media only screen and (max-width: 479px)
+{
+
+}
     </style>
 </head>
 
@@ -444,10 +458,9 @@ h2 {
 
    <!-- Header with Resume Button -->
     <header>
-        <h1>Forget Nukeri</h1>
+        <h1 style="color:#00698f;font-family: Monaco; font-size: 30px; text-align: center;">Forget Nukeri!</h1>
         <!-- Update the path to point to your correct PDF location -->
-       <a href="/Newfolder/ForgetNukeri_Cv.pdf" class="top-right-btn" target="_blank">Resume</a>
-
+        <a href="static/Newfolder/ForgetNukeri_Cv.pdf" class="top-right-btn" target="_blank">Resume</a>
 
     </header>
 
@@ -472,20 +485,20 @@ h2 {
                 </svg>
             </div>
             <div class="about-text">
-                <h2>Software Developer</h2>
+                <h4 style="color:#00698f;font-family: Monaco; font-size: 30px; text-align: center;">Software Developer!!</h4>
 
-                <p>Hello! I am Forget Nukeri, a passionate software developer skilled in various programming languages. With a strong focus on creating secure and efficient software, I specialize in developing applications that prioritize both functionality and cybersecurity. My expertise lies in integrating security practices throughout the software development lifecycle, ensuring robust and safe solutions for modern applications. Whether I’m coding in languages like C#, Python,  or conducting security assessments through penetration testing and ethical hacking, I aim to build software that stands up to the challenges of today’s digital threats.</p>
+                <p>Hello! I am Forget Nukeri, a software developer.I'm  passionate about creating secure and effient software. I specialize in developing applications that are both functional and secure. I'm skilled in programming languages like C#,javascript and python, and i also do security testing to ensure my software is safe from threats.</p>
 
             </div>
         </div>
         <a href="javascript:void(0)" class="certificates-btn" onclick="showCertificates()">View Certificates</a>
         <div class="stats-container">
             <div class="stat">
-              <div class="count-up" id="certificates-count">0</div>
+              <div class="count-up" id="certificates-count"style="color:#00698f;font-family: Monaco; font-size: 30px; text-align: center;">0</div>
               <span class="stat-label">Certificates</span>
             </div>
             <div class="stat">
-              <div class="count-up" id="projects-count">0</div>
+              <div class="count-up" id="projects-count"style="color:#00698f;font-family: Monaco; font-size: 30px; text-align: center;">0</div>
               <span class="stat-label">Projects</span>
             </div>
           </div>
@@ -506,9 +519,10 @@ h2 {
                 <a href="https://courses.cognitiveclass.ai/certificates/376c0215771844bcbe6db7d15f53e479" target="_blank">Data Science 101</a>
                 <a href="https://courses.cognitiveclass.ai/certificates/8f43018560ec40548bf33511c9535ec1" target="_blank">Statistics 101</a>
                 <a href="https://www.udemy.com/certificate/UC-23d4fe2f-fcd3-401e-a5fa-799f0be447ac/" target="_blank">IT Security 101 Cybersecurity for Beginners</a>
-               <a href="https://www.coursera.org/account/accomplishments/certificate/HVKGE2GAUF32/" target="_blank" rel="noopener noreferrer">Introduction to Software Engineering</a>
-<a href="https://www.coursera.org/account/accomplishments/certificate/SCWM0HIHCN7L/" target="_blank" rel="noopener noreferrer">Foundations of Cybersecurity</a>
-
+                <a href="https://www.coursera.org/account/accomplishments/certificate/HVKGE2GAUF32/"target="_blank">Introduction to Software Engineering</a>
+                <a href="https://www.coursera.org/account/accomplishments/certificate/HVKGE2GAUF32/"target="_blank">Introduction to Software Development</a>
+                <a href="https://www.coursera.org/account/accomplishments/certificate/SCWM0HIHCN7L/"target="_blank">Foundations of Cybersecurity</a>
+               
                 <!-- Add more certificate links as needed -->
             </div>
         </div>
@@ -523,7 +537,8 @@ h2 {
                 <img src="static/images/savepassword.jfif" alt="Project 1 Screenshot" class="project-image">
                 <div class="project-info">
                     <h3>Save password Website!</h3>
-                    <p>Save Password is web-based password management system designed to securely store and organize users's sensitive information.The platform allows users to create accounts, store password, and add descriptive notes for easy retrievals.</p>
+                    <a href="www.StudentRegisterNwu.com">FSolution Save Password</a>
+                    <p>Save Password is web-based password management system designed to securely store and organize users's sensitive information.The platform allows users to create accounts, store password, and add descriptive notes for easy retrievals.<br> Tech Used: JavaScript |Python |HTML5 |CSS3</p>
                 </div>
             </div>
             <!-- Project 2 -->
@@ -531,15 +546,17 @@ h2 {
                 <img src="static/images/fileorganizers.jfif" loading="lazy" alt="Project 2 Screenshot" class="project-image">
                 <div class="project-info">
                     <h3>File Organizers</h3>
-                    <p>File Organizer is a python-based tool designed to streamline file management tasks.This intuitive program enables users to efficiently organize, categorive, and maintain their files, saving time and reducing clutters.</p>
+                    <a href="www.StudentRegisterNwu.com">FSolution File Organizer</a>
+                    <p>File Organizer is a python-based tool designed to streamline file management tasks.This intuitive program enables users to efficiently organize, categorive, and maintain their files, saving time and reducing clutters.<br>Python ide(IDLE) Only</p>
                 </div>
             </div>
             <!-- Add more projects as needed -->
             <div class="project-item">
-                <img src="static/images/StudentList.png" loading="lazy" alt="Project 2 Screenshot" class="project-image">
+                <img src="static/images/studentlist.png" loading="lazy" alt="Project 2 Screenshot" class="project-image">
                 <div class="project-info">
                     <h3>Student Attendance Tracker</h3>
-                    <p>Student Attendance Tracker is a Python-based solution designed to revolutionize attendance management for academic sessions. This intuitive system eliminates the need for manual, paper-based attendance tracking by allowing student leaders to efficiently register attendees through an automated platform</p>
+                    <a href="www.StudentRegisterNwu.com">Nwu Cmpg121 Register</a>
+                    <p>Student Attendance Tracker is a Python-based solution designed to revolutionize attendance management for academic sessions. This intuitive system eliminates the need for manual, paper-based attendance tracking by allowing student leaders to efficiently register attendees through an automated platform.<br> Tech Used: JavaScript |Python |HTML5 |CSS3</p>
                 </div>
             </div>
         </div>
@@ -549,11 +566,10 @@ h2 {
         <h2>Skills</h2>
         <p>Here are some of the key skills that I bring to every project:</p>
         <ul>
-            <li>Programming Languages: Python, C#, JavaScript</li>
+            <li>Programming Languages: Python, C#, JavaScript, Java</li>
             <li>Web Development: HTML, CSS, Flask, Node.js</li>
-            <li>Database Management: MySQL, Firebase</li>
+            <li>Database Management: MySQL, e</li>
             <li>Cybersecurity and Network Security</li>
-            <li>Cloud Solutions: AWS, Azure</li>
         </ul>
     </div>
     <div id="Active Activities" class ="tab-content">
@@ -562,10 +578,10 @@ h2 {
 
     <div id="contacts" class ="tab-content">
         <div class="contact-container">
-            <h2>Contact Me</h2>
+            <h2 style="color:#00698f ">Contact Me</h2>
             <div class="contact-content">
                 <div class="contact-form">
-                    <h3>Get in Touch</h3>
+                    <h3 style="color:#00698f">Get in Touch</h3>
                     <form action="#" method="post">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -579,11 +595,11 @@ h2 {
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="4" required></textarea>
                         
-                        <button type="submit">Send Message</button>
+                        <button type="submit" >Send Message</button>
                     </form>
                 </div>
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
+                    <h3 style="color:#00698f" >Contact Information</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Limpopo Tzaneen Khujwana Village Stand No:679</p>
                     <p><i class="fas fa-phone-alt"></i> 0762852630</p>
                     <p><i class="fas fa-envelope"></i> forgetnukeri585@gmail.com/nhlamuloftee@gmail.com</p>
@@ -596,7 +612,7 @@ h2 {
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Forget Nukeri. All Rights Reserved.</p>
+        <p>&copy; 2024 FSolution(Forget Nukeri) All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -637,8 +653,8 @@ function countUp(elementId, targetValue, duration) {
   
   // Initialize count-up effects
   window.onload = function() {
-    countUp("certificates-count", 5, 2000);  // Certificates count to 5 over 2 seconds
-    countUp("projects-count", 2, 2000);      // Projects count to 2 over 2 seconds
+    countUp("certificates-count", 9, 2000);  // Certificates count to 9 over 2 seconds
+    countUp("projects-count", 3, 2000);      // Projects count to 3 over 2 seconds
   };
   
     </script>
